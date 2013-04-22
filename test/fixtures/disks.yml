@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  artist: MyString
+  conditions: MyText
+  interest: MyText
+  pic_path: MyString
+  status: MyString
+
+two:
+  title: MyString
+  artist: MyString
+  conditions: MyText
+  interest: MyText
+  pic_path: MyString
+  status: MyString

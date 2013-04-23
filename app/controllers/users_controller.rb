@@ -3,6 +3,7 @@ class UsersController < ActionController::Base
 
 	def show
 		@user = User.find(params[:id])
-		respond_with(@user)
+		json_user = { :data => { :user => @user }}
+		respond_with(json_user)
 	end
 end

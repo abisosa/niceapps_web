@@ -8,12 +8,14 @@ class DisksController < ActionController::Base
 	def index
 		#@disks = Disk.where(:user_id => params[:id])
 		@disks = Disk.all
-		respond_with(@disks)
+		json_disks = { :data => { :disks => @disks }}
+		respond_with(json_disks)	
 	end
 
 	def show
 		@disk = Disk.find(params[:id])
-		respond_with(@disk)
+		json_disk = { :data => { :disk => @disk }}
+		respond_with(json_disk)
 	end
 
 end

@@ -6,4 +6,5 @@ class UsersController < ActionController::Base
 		json_user = { :data => { :user => @user }}
 		respond_with(json_user)
 	end
+
 end

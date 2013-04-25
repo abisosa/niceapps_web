@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(:version => 20130420180351) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.integer  "offer_id"
   end
 
   create_table "offers", :force => true do |t|
-    t.datetime "date"
     t.string   "status"
     t.text     "message"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "reply_message"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "sender_id"
     t.integer  "receiver_id"
+    t.integer  "disk_id"
   end
 
   create_table "users", :force => true do |t|

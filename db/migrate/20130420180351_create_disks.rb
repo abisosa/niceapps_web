@@ -10,7 +10,6 @@ class CreateDisks < ActiveRecord::Migration
 
       t.timestamps
       t.references :user
-      t.references :offer
     end
   end
 end

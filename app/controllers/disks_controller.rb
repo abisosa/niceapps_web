@@ -2,8 +2,8 @@ class DisksController < ActionController::Base
 	respond_to :json
 
 	def create
-		#@disk = Disk.new
 		#JSON.parse(string)	
+
 	end
 	def index
 		@disks = Disk.all

@@ -2,7 +2,15 @@ class MessagesController < ActionController::Base
 	respond_to :json
 
 	def create
-		#@disk = Disk.new
+		@message = Message.new(content: params[:content], disk_id: params[:disk_id])
+    #@message = Message.new(params[:message])
+    if @message.save
+      json_msg = {:data => { :status => "OK", :msg => "Message received"}}
+    else
+      json_msg = {:data => { :status => "ERROR", :msg => "Error sending message.."}}
+    end
+
+    respond_with(json_msg)
 		#JSON.parse(string)	
 	end
 	def index
@@ -12,9 +20,9 @@ class MessagesController < ActionController::Base
 	end
 
 	def show
-		@disk = Disk.find(params[:id])
-		json_disk = { :data => { :disk => @disk }}
-		respond_with(json_disk)
+		#@disk = Disk.find(params[:id])
+		#json_disk = { :data => { :disk => @disk }}
+		#respond_with(json_disk)
 	end
 
 	def show_messages_by_user

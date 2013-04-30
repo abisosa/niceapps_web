@@ -5,7 +5,8 @@ NiceappsWeb::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-  resources :disks, :users, :offers 
-  match 'disks_list/:user_id' => 'disks#show_disks_by_user'
+  resources :disks, :users, :messages
+  #match 'disks_list/:user_id' => 'disks#show_disks_by_user'
+  march 'msg_disk/:user_id' => 'messages#show_messages_by_user'
 
  end

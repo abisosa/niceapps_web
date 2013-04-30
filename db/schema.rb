@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420180351) do
+ActiveRecord::Schema.define(:version => 20130429221142) do
 
   create_table "disks", :force => true do |t|
     t.string   "title"
@@ -22,19 +22,18 @@ ActiveRecord::Schema.define(:version => 20130420180351) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
-  create_table "offers", :force => true do |t|
-    t.string   "status"
-    t.text     "message"
-    t.text     "reply_message"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
+  create_table "messages", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
     t.integer  "disk_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "responses_id"
   end
+
+  add_index "messages", ["user_id", "created_at"], :name => "index_messages_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "username"

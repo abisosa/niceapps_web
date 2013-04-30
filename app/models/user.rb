@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :mail, :password, :username
   has_many :disks
-  has_many :offers
+  has_many :messages, dependent: :destroy
+
+  #has_secure_password
 
   validates :username, :presence => true,
             :uniqueness => true

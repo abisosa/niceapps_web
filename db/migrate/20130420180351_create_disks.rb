@@ -9,7 +9,6 @@ class CreateDisks < ActiveRecord::Migration
       t.string :status
 
       t.timestamps
-      t.references :user
     end
   end
 end

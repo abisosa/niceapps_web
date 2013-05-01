@@ -7,6 +7,7 @@ class CreateMessages < ActiveRecord::Migration
 
       t.timestamps
       t.references :responses
+      t.references :users
     end
     add_index :messages, [:user_id, :created_at]
   end

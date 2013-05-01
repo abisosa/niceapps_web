@@ -5,12 +5,14 @@ class MessagesController < ActionController::Base
 		@message = Message.new(content: params["content"], disk_id: params["disk_id"])
     #@message = Message.new(params[:message])
     if @message.save
-      json_msg = {:data => { :status => "OK", :msg => "Message received"}}
+      status = "OK"
+      msg = "Message Received"
     else
-      json_msg = {:data => { :status => "ERROR", :msg => "Error sending message.."}}
+      status = "ERROR"
+      msg = "Error sending message.. "
     end
 
-    respond_with(json_msg)
+    render json: { :data => { :status => status, :msg => msg}}
 		#JSON.parse(string)	
 	end
 	def index

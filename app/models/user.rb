@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :mail, :password, :username
+  attr_accessible :mail, :username
   has_many :disks
   has_many :messages, dependent: :destroy
 
@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
             :uniqueness => true
   validates :mail, :presence => true
   validates :password, :presence => true
+  validates_uniqueness_of :username
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502002557) do
+ActiveRecord::Schema.define(:version => 20130503010603) do
 
   create_table "disks", :force => true do |t|
     t.string   "title"
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(:version => 20130502002557) do
 
   create_table "messages", :force => true do |t|
     t.string   "content"
-    t.integer  "user_id"
+    t.string   "username"
     t.integer  "disk_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "responses_id"
   end
 
-  add_index "messages", ["user_id", "created_at"], :name => "index_messages_on_user_id_and_created_at"
+  add_index "messages", ["username", "created_at"], :name => "index_messages_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "username"

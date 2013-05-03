@@ -7,6 +7,6 @@ NiceappsWeb::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
   resources :disks, :users, :messages
   #match 'disks_list/:user_id' => 'disks#show_disks_by_user'
-  match 'msg_disk/:user_id' => 'messages#show_messages_by_user'
+  match 'msg_disk/:username' => 'messages#show_messages_by_user'
   #match 'messages/create' => 'messages#create'
  end

@@ -15,6 +15,7 @@ class MessagesController < ActionController::Base
     render json: { :data => { :status => status, :msg => msg}}
 		#JSON.parse(string)	
 	end
+
 	def index
 		@messages = Message.all
 		json_msgs = { :data => { :messages => @messages }}
@@ -28,9 +29,8 @@ class MessagesController < ActionController::Base
 	end
 
 	def show_messages_by_user
-    #Message.where("user_id = 1 AND disk_id = 2")
-    @messages = Message.where(:user_id => params[:user_id])
-    json_msgs ={ :data => { :messages => @messages }}
+    @messages = Message.where(:username => params[:username])
+    json_msgs = { :data => { :messages => @messages }}
     respond_with(json_msgs)
 	end
 

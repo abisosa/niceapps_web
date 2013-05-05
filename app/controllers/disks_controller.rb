@@ -6,7 +6,7 @@ class DisksController < ActionController::Base
 
 	end
 	def index
-		@disks = Disk.all
+		@disks = Disk.order("created_at DESC")
 		json_disks = { :data => { :disks => @disks }}
 		respond_with(json_disks)	
 	end

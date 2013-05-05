@@ -16,7 +16,7 @@ class MessagesController < ActionController::Base
 	end
 
 	def index
-		@messages = Message.all
+		@messages = Message.order("updated_at DESC")
 		json_msgs = { :data => { :messages => @messages }}
 		respond_with(json_msgs)	
 	end

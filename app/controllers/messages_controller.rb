@@ -2,8 +2,7 @@ class MessagesController < ActionController::Base
 	respond_to :json
 
 	def create
-		@message = Message.new(content: params[:content], user_id: params[:user_id])
-    #@message = Message.new(params[:message])
+		@message = Message.new(content: params[:content], username: params[:username], disk_id: params[:disk_id])
     if @message.save
       status = "OK"
       msg = "Message Received"
